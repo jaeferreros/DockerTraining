@@ -1,3 +1,5 @@
+from __future__ import print_function
+import sys
 from flask import Flask, redirect, url_for, \
 				  request, render_template, json
 from pymongo import MongoClient
@@ -5,7 +7,6 @@ import pymongo
 import os
 import socket
 from bson import ObjectId
-
 
 
 class JSONEncoder(json.JSONEncoder):
@@ -33,6 +34,13 @@ def add_post():
     new()
     return redirect(url_for('landing_page'))
 
+
+@app.route('/remove_post',methods=['POST'])
+def remove_post():
+    #print (request.form['jae'], file=sys.stderr)
+    db.blogpostDB.delete_one({'_id':ObjectId(request.form['postId'])})
+
+    return redirect(url_for('landing_page'))
 
 @app.route('/remove_all')
 def remove_all():

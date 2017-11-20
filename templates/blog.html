@@ -23,14 +23,18 @@
 		</form>
 
 		{% for post in posts %}
+		<form class="form-border" action="/remove_post" method="POST">
 			<div class="blog-border">
 				<div class="title">
 					<div> {{ post.title }} </div>
 				</div>
 				<div class="post">
 					<div> {{ post.post }} </div>
+					<input type="hidden" name="postId" value="{{ post._id }}">
+					<input type="submit" id="input-delete" value="DELETE" style="float:right; height:100px; width:100px; font-size:30px"></input></br>
 				</div>
-		  	</div>
+			</div>
+		</form>
 		{% endfor %}
 	
 	</body>

@@ -6,7 +6,7 @@
     "title": "Sample Swagger: Blog",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "jan.basoc@seer-technologies.com"
+      "email": "jae.ferreros@seer-technologies.com"
     },
     "license": {
       "name": "Apache 2.0",
@@ -100,6 +100,13 @@
         "post": {
           "type": "string",
           "example": "Lorem Ipsum"
+        },
+        "written_by": {
+          "type": "string"
+        },
+        "publish_date": {
+          "type": "string",
+          "format": "date-time"
         }
       },
       "xml": {
